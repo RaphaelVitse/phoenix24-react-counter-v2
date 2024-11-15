@@ -1,16 +1,47 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Counter from "./components/Counter";
+// import Counter from "./components/Counter";
 
 function App() {
-  const [counter, setCounter] = useState({ counter: 0 });
-
+  const [counters, setCounter] = useState([0, 5]);
+  const decr = () => {
+    const newCounters = [...counters];
+    newCounters.push((counters[index] = counters - 1));
+    setCounter(newCounters);
+  };
+  const incr = () => {
+    setCounter(counters + 1);
+  };
   return (
     <>
       <Header title="React Counter v2" />
       <main className="container">
-        <Counter counter={counter.counter} setCounter={setCounter} />
+        {counters.map((counter, index) => {
+          return (
+            <section key={index} className="btn">
+              {console.log(index)};
+              {/* <button className="btn-add-counter" onClick={() => {}}>
+                Add counter
+              </button> */}
+              <div className="button">
+                <button onClick={decr}>-</button>
+                <p>{counter}</p>
+                <button onClick={incr}> + </button>
+              </div>
+              <div className="button">
+                <button
+                  onClick={() => {
+                    setCounter(0);
+                  }}
+                >
+                  Reset
+                </button>
+              </div>
+            </section>
+          );
+        })}
+        {/* <Counter counter={counter.counter} setCounter={setCounter} /> */}
       </main>
     </>
   );
