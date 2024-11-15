@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  background: lightpink;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+header {
+  font-size: 35px;
+  padding: 25px 25px;
+  border-bottom: 2px solid lightgrey;
+}
+
+.timer {
+  color: #5c48d3;
+}
+
+.btn {
+  margin: 200px auto;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+button {
+  width: 60px;
+}
+
+.btn-add-counter {
+  margin: 0 auto;
+  text-align: center;
+}
