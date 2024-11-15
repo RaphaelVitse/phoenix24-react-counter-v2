@@ -6,8 +6,8 @@ import Header from "./components/Header";
 function App() {
   const [counters, setCounter] = useState([0, 5]);
   const decr = () => {
-    const newCounters = [...counters];
-    newCounters.push((counters[index] = counters - 1));
+    let newCounters = [...counters];
+    newCounters = counters - 1;
     setCounter(newCounters);
   };
   const incr = () => {
@@ -20,7 +20,6 @@ function App() {
         {counters.map((counter, index) => {
           return (
             <section key={index} className="btn">
-              {console.log(index)};
               {/* <button className="btn-add-counter" onClick={() => {}}>
                 Add counter
               </button> */}
