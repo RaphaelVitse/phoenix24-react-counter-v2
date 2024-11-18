@@ -24,7 +24,7 @@ function App() {
   };
 
   const addCounter = () => {
-    let newCounters = [...counters];
+    const newCounters = [...counters];
     newCounters.push(0);
     setCounter(newCounters);
   };
@@ -33,22 +33,24 @@ function App() {
     <>
       <Header title="React Counter v2" />
       <main className="container">
-        {counters.length < 3 && (
-          <button onClick={() => addCounter()}>Add counter</button>
-        )}
+        <button disabled={counters.length === 3} onClick={() => addCounter()}>
+          Add counter
+        </button>
 
-        {counters.map((counter, index) => (
-          <section key={index} className="btn">
-            <div className="button">
-              <button onClick={() => decr(index)}>-</button>
-              <p>{counter}</p>
-              <button onClick={() => incr(index)}> + </button>
-            </div>
-            <div className="button">
-              <button onClick={() => reset(index)}>Reset</button>
-            </div>
-          </section>
-        ))}
+        {counters.map((counter, index) => {
+          return (
+            <section key={index} className="btn">
+              <div className="button">
+                <button onClick={() => decr(index)}>-</button>
+                <p>{counter}</p>
+                <button onClick={() => incr(index)}> + </button>
+              </div>
+              <div className="button">
+                <button onClick={() => reset(index)}>Reset</button>
+              </div>
+            </section>
+          );
+        })}
         {/* <Counter counter={counter.counter} setCounter={setCounter} /> */}
       </main>
     </>
